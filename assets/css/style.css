@@ -29,6 +29,17 @@ table {
     margin: 2%;
 }
 
+.form-element label {
+    font-size: 1.2rem;
+}
+
+.form-element input {
+    width: 60%;
+    padding: 2%;
+    font-size: 1rem;
+    margin: 2%;
+}
+
 #user-form {
     width: 50%;
     height: 40%;
