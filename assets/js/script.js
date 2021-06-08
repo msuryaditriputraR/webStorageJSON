@@ -1,5 +1,5 @@
-import { submitAction } from './dom';
-import { submitActionListener, windowLoadListener } from './function';
+import { submitAction } from './dom.js';
+import { submitActionListener, windowLoadListener } from './function.js';
 
 window.addEventListener('load', windowLoadListener);
 
