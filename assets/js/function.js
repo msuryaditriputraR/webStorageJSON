@@ -23,8 +23,8 @@ const getUserList = () => {
     else return [];
 };
 
-const renderUserList = () => {
-    const userData = getUserList();
+const renderUserList = data => {
+    const userData = data || getUserList();
     const userList = userListField;
 
     userList.innerHTML = '';
@@ -53,5 +53,16 @@ const submitActionListener = () => {
     putUserList(newUserData);
     renderUserList();
 };
-
-export { submitActionListener };
+const windowLoadListener = () => {
+    if (checkForStorage) {
+        if (localStorage.getItem(storageKey) !== null) {
+            const userData = getUserList();
+            renderUserList(userData);
+        }
+    } else {
+        alert(
+            'Browser yang anda gunakan tidak mendukung Storage. silahkan ganti browser anda terlebih dahulu'
+        );
+    }
+};
+export { submitActionListener, windowLoadListener };
