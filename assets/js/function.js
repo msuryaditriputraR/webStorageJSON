@@ -1,4 +1,5 @@
-import storageKey from './key';
+import { userListField } from './dom.js';
+import storageKey from './key.js';
 
 const checkForStorage = () => {
     return typeof Storage !== 'undefined';
@@ -20,6 +21,22 @@ const putUserList = data => {
 const getUserList = () => {
     if (checkForStorage) return JSON.parse(localStorage.getItem(storageKey));
     else return [];
+};
+
+const renderUserList = () => {
+    const userData = getUserList();
+    const userList = userListField;
+
+    userList.innerHTML = '';
+
+    for (let user of userData) {
+        let row = document.createElement('tr');
+        row.innerHTML = `<td> ${user.nama} </td>`;
+        row.innerHTML += `<td> ${user.umur} </td>`;
+        row.innerHTML += `<td> ${user.domisili} </td>`;
+
+        userList.appendChild(row);
+    }
 };
 
 export { putUserList };
