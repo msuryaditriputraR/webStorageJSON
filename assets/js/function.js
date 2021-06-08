@@ -1,4 +1,4 @@
-import { userListField } from './dom.js';
+import { domisili, nama, umur, userListField } from './dom.js';
 import storageKey from './key.js';
 
 const checkForStorage = () => {
@@ -39,4 +39,19 @@ const renderUserList = () => {
     }
 };
 
-export { putUserList };
+const submitActionListener = () => {
+    const inputNama = nama.value;
+    const inputUmur = umur.value;
+    const inputDomisili = domisili.value;
+
+    const newUserData = {
+        nama: inputNama,
+        umur: inputUmur,
+        domisili: inputDomisili
+    };
+
+    putUserList(newUserData);
+    renderUserList();
+};
+
+export { submitActionListener };
